@@ -1,0 +1,137 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+header {
+    background-color: #202A34;
+    color: white;
+    text-align: center;
+}
+
+header > nav{
+    background-color: #0C0D11;
+    padding: 1em;
+}
+
+header h1 {
+    font-size: 1.5em;
+    padding: 1em;
+    color: #69FDF5;
+}
+
+header span {
+    font-size: 0.8em;
+    color: white;
+}
+nav ul{
+    list-style-type: none;
+    justify-content: space-around;
+    display: flex;
+}
+
+nav ul li a {
+    font-size: 1.2em;
+    color: white;
+    text-decoration: none;
+}
+nav ul li a:hover {
+    color: #47A3A0;
+    transition: all 0.2s ease-in-out;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.card{
+    background-color: #FFFFFF;
+    /* padding: 20px; */
+    margin: 10px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.card-main{
+    grid-column: 1 / 3;
+    /* padding: 20px; */
+}
+
+.main-country-grid{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+.card-about-me {
+    display: flex;
+}
+
+.card-about-me p {
+    font-size: 1.2em;
+    /* flex: 1; */
+    margin-right: 50px;
+}
+.card h3{
+    text-align: center;
+    font-size: 1.6em;
+    padding: 0.5em;
+    color: white;
+    background: #47A3A0;
+     border-radius: 8px 8px 0 0;
+}
+.card-main h4 {
+    grid-column: 1/3;
+    /* background: #000; */
+    font-size: 1.4em;
+    margin-top: 10px;
+    text-align: center;
+    margin-bottom: 10px;
+    text-decoration: underline;
+}
+
+.main-country-grid .flag-p {
+    font-size: 0.8em;
+    font-style: italic;
+}
+
+.container{
+    padding : 20px;
+}
+
+.container-country {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+.container-country h4{
+    grid-column: 1/3;
+}
+
+.container-country .main-country-grid{
+    grid-column: 1/3;
+    display: flex;
+    justify-content: center;
+}
+.card-resources .container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 90%;
+}
+
+.resources-list {
+    line-height: 1.6;
+    list-style-type: circle;
+    padding: 0;
+}
+
+footer {
+    background-color: #202A34;
+    color: white;
+    text-align: center;
+    padding: 1em;
+    height: 100px;
+}
