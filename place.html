@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Madagascar</title>
+  <link rel="stylesheet" href="styles/place.css" />
+  <script src="scripts/getdates.js" defer></script>
+</head>
+<body>
+  <header>
+    <h1>Madagascar</h1>
+  </header>
+
+  <main>
+    <section class="hero">
+      <picture>
+        <source srcset="images/hero-large.webp" media="(min-width: 900px)">
+        <img src="images/hero-small.webp" alt="Lemurs in Madagascar" />
+      </picture>
+      <div class="info-card">
+        <h2>Data</h2>
+        <div class="info-row"><span class="label">Area:</span><span class="value">587,041 sq km</span></div>
+        <div class="info-row"><span class="label">Population:</span><span class="value">27,691,018</span></div>
+        <div class="info-row"><span class="label">Capital:</span><span class="value">Antananarivo</span></div>
+        <div class="info-row"><span class="label">Languages:</span><span class="value">Malagasy, French</span></div>
+        <div class="info-row"><span class="label">Currency:</span><span class="value">Malagasy Ariary</span></div>
+        <div class="info-row"><span class="label">Time Zone:</span><span class="value">UTC+3</span></div>
+        <div class="info-row"><span class="label">Calling Code:</span><span class="value">+261</span></div>
+        <div class="info-row"><span class="label">Internet TLD:</span><span class="value">.mg</span></div>
+      </div>
+      <div class="weather">
+        <h2>Weather <span class="weather-icon"></span></h2>
+        <div class="info-row"><span class="label">Temperature:</span><span class="value">10°C</span></div>
+        <div class="info-row"><span class="label">Conditions:</span><span class="value">Partly Cloudy</span></div>
+        <div class="info-row"><span class="label">Wind:</span><span class="value">5 km/h</span></div>
+        <div class="info-row"><span class="label">Wind Chill:</span><span class="value">9.8°C</span></div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>©<span id="currentyear"></span> David Pérez 🇲🇬 Madagascar</p>
+    <p id="lastModified"></p>
+  </footer>
+</body>
+</html>
