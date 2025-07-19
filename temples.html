@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Temple Album</title>
+  <meta name="description" content="A simple album showcasing temple images.">
+  <meta name="author" content="David Pérez">
+  <link rel="stylesheet" href="styles/temples.css">
+  <link rel="stylesheet" href="styles/temples-large.css" >
+</head>
+<body>
+  <header>
+    <nav>
+      <span>Temple Album</span>
+      <button id="menu-toggle" aria-label="Open menu">&#9776;</button>
+      <div id="nav-links">
+        <a href="#">Home</a>
+        <a href="#">Old</a>
+        <a href="#">New</a>
+        <a href="#">Large</a>
+        <a href="#">Small</a>
+      </div>
+    </nav>
+
+  </header>
+
+  <main>
+    <h1>Our Favorite Temples</h1>
+    <div class="container">
+
+      <figure>
+        <img src="images/temple_base.jpeg" alt="Temple 1">
+        <figcaption>Salt Lake Temple</figcaption>
+      </figure>
+  
+      <figure>
+        <img src="images/temple_base.jpeg" alt="Temple 2">
+        <figcaption>Rome Italy Temple</figcaption>
+      </figure>
+  
+      <figure>
+        <img src="images/temple_base.jpeg" alt="Temple 3">
+        <figcaption>Paris France Temple</figcaption>
+      </figure>
+  
+      <figure>
+        <img src="images/temple_base.jpeg" alt="Temple 4">
+        <figcaption>Mexico City Temple</figcaption>
+      </figure>
+  
+      <figure>
+        <img src="images/temple_base.jpeg" alt="Temple 5">
+        <figcaption>Tokyo Japan Temple</figcaption>
+      </figure>
+  
+      <figure>
+        <img src="images/temple_base.jpeg" alt="Temple 6">
+        <figcaption>Provo City Center Temple</figcaption>
+      </figure>
+  
+      <figure>
+        <img src="images/temple_base.jpeg" alt="Temple 7">
+        <figcaption>San Diego California Temple</figcaption>
+      </figure>
+  
+      <figure>
+        <img src="images/temple_base.jpeg" alt="Temple 8">
+        <figcaption>Manila Philippines Temple</figcaption>
+      </figure>
+  
+      <figure>
+        <img src="images/temple_base.jpeg" alt="Temple 9">
+        <figcaption>Cardston Alberta Temple</figcaption>
+      </figure>
+    </div>
+
+  </main>
+
+  <footer>
+    <p>&copy; <span id="year"></span> Temple Album | Created by David Pérez</p>
+    <p>Last Updated: <span id="lastModified"></span></p>
+  </footer>
+
+  <script src="scripts/temples.js" defer></script>
+  <script>
+    // Script to add current year and last modified date
+    document.getElementById("year").textContent = new Date().getFullYear();
+    document.getElementById("lastModified").textContent = document.lastModified;
+  </script>
+</body>
+</html>

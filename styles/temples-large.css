@@ -1,0 +1,27 @@
+/* Grid: 3 columns for larger view */
+@media (min-width: 768px) {
+  .container {
+    grid-template-columns: repeat(3, 1fr);
+  }
+   nav button#menu-toggle {
+    display: none;
+  }
+  nav #nav-links {
+    display: flex !important;
+    flex-direction: row;
+    position: static;
+    background: none;
+    box-shadow: none;
+    width: auto;
+  }
+}
+
+/* Navigation can be spaced better on desktop */
+nav {
+  justify-content: center;
+  gap: 2rem;
+}
+
+nav a {
+  font-size: 1.1rem;
+}
