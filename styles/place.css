@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&family=Zen+Kaku+Gothic+Antique&display=swap');
+
+
 :root {
   --main-color: #007e3a; /* Verde bandera Madagascar */
   --accent-color: #ff0000; /* Rojo bandera Madagascar */
@@ -6,7 +9,7 @@
 }
 
 body {
-  font-family: Arial, sans-serif;
+  font-family: Roboto, 'Zen Kaku Gothic Antique', sans-serif;
   margin: 0;
   background-color: #f4f4f4;
 }
