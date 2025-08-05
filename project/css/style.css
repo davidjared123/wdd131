@@ -1,9 +1,9 @@
 
 
-/* --- MODAL CSS-ONLY :target --- */
+/* --- MODAL STYLES --- */
 .modal-window {
   position: fixed;
-  background-color: rgba(255, 255, 255, 0.25);
+  background-color: rgba(0, 0, 0, 0.6);
   top: 0;
   right: 0;
   bottom: 0;
@@ -12,46 +12,154 @@
   visibility: hidden;
   opacity: 0;
   pointer-events: none;
-  transition: all 0.3s;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
 }
-.modal-window:target {
+
+.modal-window.show {
   visibility: visible;
   opacity: 1;
   pointer-events: auto;
 }
+
 .modal-window > div {
-  width: 400px;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  padding: 2em;
+  width: 100%;
+  max-width: 500px;
+  max-height: 90vh;
+  overflow-y: auto;
   background: white;
   border-radius: 1rem;
+  padding: 2rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  transform: scale(0.8);
+  transition: transform 0.3s ease;
 }
+
+.modal-window.show > div {
+  transform: scale(1);
+}
+
 .modal-close {
   color: #aaa;
-  line-height: 50px;
-  font-size: 80%;
+  line-height: 30px;
+  font-size: 16px;
   position: absolute;
-  right: 0;
+  right: 10px;
+  top: 10px;
+  width: 30px;
+  height: 30px;
   text-align: center;
-  top: 0;
-  width: 70px;
   text-decoration: none;
-  background: none;
+  background: #f0f0f0;
   border: none;
+  border-radius: 50%;
   cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
 }
+
 .modal-close:hover {
-  color: black;
+  color: white;
+  background: #ff4444;
 }
+
 .modal-header {
-  font-weight: bold;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+  padding-top: 1rem;
 }
-.modal-header h1 {
-  font-size: 150%;
-  margin: 0 0 15px;
+
+.modal-docente-img {
+  width: 80px;
+  height: 80px;
+  border-radius: 12px;
+  object-fit: cover;
+}
+
+.modal-header h3 {
+  font-family: 'Montserrat', Arial, sans-serif;
+  color: var(--secondary);
+  margin: 0;
+  font-size: 1.3rem;
+}
+
+.modal-sub {
+  color: #666;
+  margin: 0.5rem 0 0 0;
+  font-size: 0.9rem;
+}
+
+.modal-body {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.modal-prices {
+  background: #f8f9fa;
+  padding: 1rem;
+  border-radius: 8px;
+}
+
+.modal-prices > div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 0;
+  border-bottom: 1px solid #e9ecef;
+}
+
+.modal-prices > div:last-child {
+  border-bottom: none;
+}
+
+.modal-label {
+  font-weight: 600;
+  color: #333;
+}
+
+.price {
+  font-weight: 700;
+  color: var(--secondary);
+  font-size: 1.1rem;
+}
+
+.modal-horario {
+  font-size: 0.8rem;
+  color: #666;
+  margin-left: 0.5rem;
+}
+
+.modal-programa h4,
+.modal-docente-desc h4 {
+  font-family: 'Montserrat', Arial, sans-serif;
+  color: var(--secondary);
+  margin: 0 0 0.5rem 0;
+}
+
+.modal-programa ul {
+  margin: 0;
+  padding-left: 1.2rem;
+}
+
+.modal-programa li {
+  margin-bottom: 0.3rem;
+}
+
+.modal-link {
+  color: var(--secondary);
+  text-decoration: underline;
+}
+
+.modal-link:hover {
+  color: #003d7a;
 }
 .btn {
   background-color: white;
@@ -224,7 +332,7 @@ header {
 }
 
 .contact-header{
-    display: flex;
+  display: flex;
  align-items: center;
  justify-content: space-between;
  padding: 0 1em;
@@ -237,6 +345,7 @@ nav {
   align-items: center;
   justify-content: space-between;
   padding: 0.3em 0.7rem 0.3rem 0.7rem;
+  width: 100%;
 }
 nav ul li{
   list-style: none;
@@ -275,7 +384,7 @@ nav ul li a:hover {
   font-family: 'Montserrat', Arial, sans-serif;
 }
 .logo img {
-  height: 45px;
+  height: 80px;
   width: auto;
   display: block;
 }
@@ -333,6 +442,8 @@ nav ul li a:hover {
 
 /* ================= MOBILE STYLES ================= */
 @media (max-width: 700px) {
+
+  
   /* NAVBAR */
   nav ul {
     display: none;
@@ -365,6 +476,10 @@ nav ul li a:hover {
     justify-content: flex-end !important; ;
     padding-bottom: 4.5rem !important;
   }
+
+  .logo img {
+  height: 45px;
+}
 
   /* TEAM CARD (puedes agregar más ajustes mobile aquí si lo necesitas) */
   /* .team-card { ... } */
@@ -569,9 +684,10 @@ footer .social a:hover {
     font-size: 1.1rem;
   }
   header nav {
-    padding: 0.3em 0.7rem 0.3rem 0.7rem;
-    max-width: 1400px;
-    margin: 0 auto;
+    padding:0.5em 2em ;
+    width: 100%;
+    max-width: none;
+    margin: 0;
   }
   nav ul {
     gap: 2.5rem;

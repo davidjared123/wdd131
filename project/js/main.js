@@ -13,6 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 });
+
 // Scroll suave para el enlace de contacto en el navbar
 document.addEventListener('DOMContentLoaded', () => {
   const contactoLink = document.querySelector('a[href="#contacto"]');
@@ -22,6 +23,24 @@ document.addEventListener('DOMContentLoaded', () => {
       if (target) {
         e.preventDefault();
         target.scrollIntoView({ behavior: 'smooth' });
+      }
+    });
+  }
+});
+
+// Scroll suave para el logo al inicio de la página
+document.addEventListener('DOMContentLoaded', () => {
+  const logoLink = document.querySelector('.logo');
+  if (logoLink) {
+    logoLink.addEventListener('click', function(e) {
+      const href = this.getAttribute('href');
+      // Solo aplicar scroll suave si el enlace es a la misma página (index.html o similar)
+      if (href === 'index.html' || href === '/' || href === '#' || href === '') {
+        e.preventDefault();
+        window.scrollTo({
+          top: 0,
+          behavior: 'smooth'
+        });
       }
     });
   }
@@ -38,49 +57,61 @@ if (menuToggle && navUl) {
   });
 }
 
-// Botón "Saber más" (puedes personalizar la acción)
+// Modal functionality
 document.addEventListener('DOMContentLoaded', () => {
   const learnBtn = document.querySelector('.learn-btn');
   const modal = document.getElementById('modalDocente');
-  const closeModalBtn = modal ? modal.querySelector('.close-modal') : null;
-  let scrollListener = null;
-  function closeModal() {
-    const modalContent = modal.querySelector('.modal-content-full');
-    if (modalContent) {
-      modalContent.classList.add('hide-anim');
-      setTimeout(() => {
-        modal.classList.add('hidden');
-        modalContent.classList.remove('hide-anim');
-        learnBtn.focus();
-      }, 350);
-    } else {
-      modal.classList.add('hidden');
-      learnBtn.focus();
-    }
-    if (scrollListener) {
-      window.removeEventListener('scroll', scrollListener);
-      scrollListener = null;
-    }
-    document.body.style.overflow = '';
-  }
-  if (learnBtn && modal && closeModalBtn) {
-    learnBtn.addEventListener('click', () => {
-      modal.classList.remove('hidden');
-      modal.focus();
-      // Bloquear scroll de fondo
+  const closeModalBtn = modal ? modal.querySelector('.modal-close') : null;
+
+  function openModal() {
+    if (modal) {
+      modal.classList.add('show');
       document.body.style.overflow = 'hidden';
-      // Cerrar al hacer scroll
-      scrollListener = () => closeModal();
-      setTimeout(() => window.addEventListener('scroll', scrollListener), 200);
+      // Enfocar el modal para accesibilidad
+      modal.focus();
+    }
+  }
+
+  function closeModal() {
+    if (modal) {
+      modal.classList.remove('show');
+      document.body.style.overflow = '';
+      // Devolver el foco al botón que abrió el modal
+      if (learnBtn) {
+        learnBtn.focus();
+      }
+    }
+  }
+
+  // Abrir modal al hacer clic en "Saber más"
+  if (learnBtn) {
+    learnBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      openModal();
     });
-    closeModalBtn.addEventListener('click', closeModal);
-    // Cerrar con Escape
-    modal.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape') closeModal();
+  }
+
+  // Cerrar modal al hacer clic en el botón de cerrar
+  if (closeModalBtn) {
+    closeModalBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      closeModal();
     });
-    // Cerrar al hacer click fuera del modal-content
-    modal.addEventListener('mousedown', (e) => {
-      if (e.target === modal) closeModal();
+  }
+
+  // Cerrar modal al hacer clic fuera del contenido
+  if (modal) {
+    modal.addEventListener('click', (e) => {
+      if (e.target === modal) {
+        closeModal();
+      }
+    });
+
+    // Cerrar modal con la tecla Escape
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && modal.classList.contains('show')) {
+        closeModal();
+      }
     });
   }
 });
