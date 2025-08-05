@@ -2,15 +2,87 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <title>Referencias - Rayitos de Sol</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>References & Author - Rayitos de Sol</title>
+  <link rel="stylesheet" href="styles/temples.css">
+  <link rel="stylesheet" href="styles/temples-large.css">
+  <style>
+    .autor-container {
+      max-width: 600px;
+      margin: 3rem auto 2rem auto;
+      background: #fff;
+      border-radius: 1.2rem;
+      box-shadow: 0 2px 16px rgba(0,0,0,0.08);
+      padding: 2.5rem 2rem 2rem 2rem;
+      text-align: center;
+    }
+    .autor-container h1 {
+      color: #0057AD;
+      font-size: 2.2rem;
+      margin-bottom: 0.5rem;
+      font-family: 'Montserrat', Arial, sans-serif;
+    }
+    .autor-container h2 {
+      color: #43c97f;
+      font-size: 1.3rem;
+      margin-bottom: 1.2rem;
+      font-family: 'Montserrat', Arial, sans-serif;
+    }
+    .autor-container p {
+      font-size: 1.1rem;
+      color: #333;
+      margin-bottom: 1.2rem;
+      line-height: 1.7;
+    }
+    .autor-container .badge {
+      display: inline-block;
+      background: #ffe066;
+      color: #222;
+      font-weight: 700;
+      border-radius: 0.7rem;
+      padding: 0.4em 1.2em;
+      margin-bottom: 1.2rem;
+      font-size: 1rem;
+    }
+    .autor-container .author {
+      font-size: 1.2rem;
+      color: #0057AD;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+    .autor-container .project {
+      font-size: 1.1rem;
+      color: #43c97f;
+      font-weight: 600;
+      margin-bottom: 1.2rem;
+    }
+    .autor-container .footer-info {
+      font-size: 0.98rem;
+      color: #888;
+      margin-top: 2rem;
+    }
+  </style>
 </head>
 <body>
-  <h1>Referencias</h1>
-  <ul>
-    <li>Imágenes: Unsplash, Freepik, propias.</li>
-    <li>Inspiración de textos: <a href="https://www.ejemplo.com" target="_blank">ejemplo.com</a></li>
-    <li>Iconos: <a href="https://www.flaticon.com/" target="_blank">Flaticon</a></li>
-  </ul>
-  <p><a href="index.html">Volver al inicio</a></p>
+  <div class="autor-container">
+    <h1>Rayitos de Sol</h1>
+    <span class="badge">Final Project</span>
+    <h2>Author</h2>
+    <div class="author">David Jared Pérez Alvarez</div>
+    <div class="project">WDD 131 - Frontend Web Development</div>
+    <p>
+      This project is the final result of the course, where I have implemented everything learned about HTML, CSS, and JavaScript.<br>
+      It includes responsive design, DOM manipulation, accessibility best practices, code modularity, and resource optimization.<br>
+      <b>Rayitos de Sol</b> is a demonstration of my ability to create modern, functional, and visually attractive web sites.
+    </p>
+    <div class="footer-info">
+      &copy; <span id="year"></span> Rayitos de Sol | Created by David Pérez<br>
+      Last Updated: <span id="lastModified"></span>
+    </div>
+  </div>
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+    document.getElementById("lastModified").textContent = document.lastModified;
+  </script>
 </body>
 </html>
