@@ -1,142 +1,465 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&family=Zen+Kaku+Gothic+Antique&display=swap');
-
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: Roboto, 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+/* --- MODAL CSS-ONLY :target --- */
+.modal-window {
+  position: fixed;
+  background-color: rgba(255, 255, 255, 0.85);
+  top: 0; right: 0; bottom: 0; left: 0;
+  z-index: 9999;
+  visibility: hidden;
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.3s;
+}
+.modal-window:target {
+  visibility: visible;
+  opacity: 1;
+  pointer-events: auto;
+}
+.modal-window > div {
+  width: 95vw;
+  max-width: 350px;
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 1.5em 1em 1em 1em;
+  background: #fff;
+  border-radius: 1rem;
+  box-shadow: 0 8px 32px rgba(67,201,127,0.18), 0 2px 8px rgba(0,0,0,0.10);
+}
+.modal-close {
+  color: #aaa;
+  line-height: 40px;
+  font-size: 90%;
+  position: absolute;
+  right: 0.5em;
+  top: 0.5em;
+  width: 60px;
+  text-align: center;
+  text-decoration: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+.modal-close:hover {
+  color: #0057AD;
+}
+.modal-header {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  border-bottom: 1.5px solid #43c97f33;
+  padding-bottom: 0.5rem;
+}
+.modal-docente-img {
+  max-width: 80px;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1/1;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2.5px solid #43c97f;
+  background: #fff;
+  display: block;
+  box-sizing: border-box;
+  margin-right: 0.7rem;
+}
+.btn {
+  background-color: white;
+  padding: 1em 1.5em;
+  border-radius: 0.5rem;
+  text-decoration: none;
+  color: #0057AD;
+  font-weight: 600;
+  box-shadow: 0 2px 8px rgba(67,201,127,0.08);
+  transition: background 0.2s, color 0.2s;
+  display: inline-block;
+  margin-bottom: 1.2rem;
+}
+.btn:hover {
+  background: #e6f9f0;
+  color: #43c97f;
+}
+/* Modal mejorado para info de docente y precios */
+/* Modal ocupa casi toda la ventana */
+/* Modal ocupa casi toda la ventana, animación y scroll interno */
+.modal-content-full {
+  width: 95vw;
+  max-width: 350px;
+  min-width: 220px;
+  background: linear-gradient(120deg, #fff 80%, #e6f9f0 100%);
+  border: 2.5px solid #43c97f22;
+  box-shadow: 0 8px 32px rgba(67,201,127,0.12);
+  padding: 0.5rem 0.5rem 1rem 0.5rem;
+  animation: modalPopIn 0.45s cubic-bezier(.4,1.6,.6,1) both;
+  transition: opacity 0.35s, transform 0.35s;
+  scrollbar-width: thin;
+  scrollbar-color: #43c97f #e6f9f0;
+  overflow-y: auto;
+}
+@media (max-width: 600px) {
+  .modal-content-full {
+  width: 80vw;
+  height: 80vh;
+  max-width: 700px;
+  max-height: 80vh;
+  min-width: 280px;
+  min-height: 220px;
+  overflow-y: auto;
+  background: var(--card-background, #fff);
+  border: 2.5px solid #43c97f22;
+  box-shadow: 0 8px 32px rgba(67,201,127,0.12), 0 2px 8px rgba(0,0,0,0.10);
+  padding: 0 0 1.2rem 0;
+  animation: modalPopIn 0.45s cubic-bezier(.4,1.6,.6,1) both;
+  transition: opacity 0.35s, transform 0.35s;
+  scrollbar-width: thin;
+  scrollbar-color: #43c97f #e6f9f0;
+  backdrop-filter: blur(0.5px) saturate(1.1);
+  -webkit-backdrop-filter: blur(0.5px) saturate(1.1);
+  font-size: 0.97rem;
 }
 
-header {
-    background-color: #202A34;
+.modal-content-full::-webkit-scrollbar-thumb {
+  background: #43c97f88;
+  border-radius: 6px;
+}
+.modal-content-full::-webkit-scrollbar-track {
+  background: #e6f9f0;
+  border-radius: 6px;
+}
+@media (max-width: 600px) {
+  .modal-content-full {
+    width: 98vw;
+    height: 98vh;
+    max-width: 100vw;
+    max-height: 100vh;
+    border-radius: 8px;
+    padding: 0 0 1rem 0;
+  }
+}
+.modal-header {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  border-bottom: 1.5px solid #43c97f33;
+  padding: 0.7rem 0.7rem 0.5rem 0.7rem;
+}
+/* --- Imagen docente en modal: SIEMPRE pequeña y circular --- */
+.modal-docente-img {
+  max-width: 80px;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1/1;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2.5px solid #43c97f;
+  background: #fff;
+  display: block;
+  box-sizing: border-box;
+  margin-right: 0.7rem;
+}
+ 
+.modal-sub {
+  color: #0057AD;
+  font-size: 1.05rem;
+  margin: 0.2rem 0 0 0;
+}
+.modal-body {
+  padding: 1.2rem 1.5rem 0 1.5rem;
+}
+.modal-prices {
+  background: #f7fff9;
+  border-radius: 8px;
+  padding: 0.7rem 1rem;
+  margin-bottom: 1rem;
+  border: 1.5px solid #43c97f33;
+  font-size: 1.08rem;
+}
+.modal-label {
+  color: #0057AD;
+  font-weight: 600;
+}
+.modal-horario {
+  color: #888;
+  font-size: 0.98em;
+}
+.modal-programa ul {
+  margin: 0.5rem 0 1rem 1.2rem;
+  padding: 0;
+  list-style: disc inside;
+  font-size: 1.05rem;
+}
+.modal-docente-desc h4 {
+  margin-top: 1.2rem;
+  color: #0057AD;
+  font-size: 1.1rem;
+}
+.modal-docente-desc p {
+  margin: 0.3rem 0 0 0;
+  font-size: 1.01rem;
+}
+.modal-contacto {
+  margin-top: 1.2rem;
+  text-align: center;
+}
+.modal-link {
+  color: #43c97f;
+  font-weight: 600;
+  text-decoration: underline;
+  transition: color 0.2s;
+}
+.modal-link:hover {
+  color: #0057AD;
+}
+/* Modal precios y docente */
+.modal-list {
+  margin: 0.5rem 0 0.5rem 1.2rem;
+  padding: 0;
+  list-style: disc inside;
+  font-size: 1.05rem;
+}
+.modal-list .price {
+  color: #43c97f;
+  font-weight: bold;
+  font-size: 1.08em;
+}
+.modal-content h4 {
+  margin-top: 1.2rem;
+  color: #0057AD;
+  font-size: 1.1rem;
+}
+/* Modal docente */
+/* Modal overlay centrado y sobre todo */
+.modal {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0,0,0,0.45);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  transition: opacity 0.3s;
+  overflow-y: auto;
+}
+.modal.hidden {
+  display: none !important;
+}
+.modal-content,
+.modal-content-hero {
+  background: #fff;
+  border-radius: 14px;
+  padding: 2rem 1.5rem 1.5rem 1.5rem;
+  max-width: 440px;
+  min-width: 320px;
+  box-shadow: 0 8px 32px rgba(67,201,127,0.18), 0 2px 8px rgba(0,0,0,0.10);
+  position: relative;
+  outline: none;
+  z-index: 10001;
+  animation: modalPopIn 0.35s cubic-bezier(.4,1.6,.6,1) both;
+}
+@keyframes modalPopIn {
+  0% { opacity: 0; transform: scale(0.92) translateY(-30px); }
+  100% { opacity: 1; transform: scale(1) translateY(0); }
+}
+.close-modal {
+  position: absolute;
+  top: 0.7rem;
+  right: 1rem;
+  background: none;
+  border: none;
+  font-size: 2rem;
+  color: #0057AD;
+  cursor: pointer;
+  transition: color 0.2s;
+  z-index: 10002;
+}
+.close-modal:hover, .close-modal:focus {
+  color: #c62828;
+}
+/* Feedback animado para mensaje de éxito del formulario */
+#mensajeExito {
+  background: #e6ffe6;
+  border: 1.5px solid #43c97f;
+  border-radius: 6px;
+  padding: 0.75rem 1.2rem;
+  margin-top: 1rem;
+  font-weight: 600;
+  font-size: 1.1rem;
+  box-shadow: 0 2px 8px rgba(67,201,127,0.08);
+  opacity: 0;
+  transition: opacity 0.5s, transform 0.5s;
+  transform: translateY(-10px);
+  pointer-events: none;
+}
+#mensajeExito:not(.hidden) {
+  opacity: 1;
+  transform: translateY(0);
+}
+#mensajeExito.hidden {
+  display: none;
+}
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Open+Sans:wght@400;600&display=swap');
+
+:root {
+    --primary-color: #0057AD; /* Azul de tu siteplan */
+    --secondary-color: #FFE066; /* Amarillo de tu siteplan */
+    --background-color: #F7F7F7;
+    --text-color: #333;
+    --card-background: #fff;
+    --card-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Open Sans', sans-serif;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    margin: 0;
+}
+
+h1, h2, h4 {
+    font-family: 'Montserrat', sans-serif;
+    color: var(--primary-color);
+}
+
+header, footer {
+    background-color: var(--primary-color);
     color: white;
     text-align: center;
-}
-
-header > nav{
-    background-color: #0C0D11;
-    padding: 1em;
+    padding: 1rem;
 }
 
 header h1 {
-    font-size: 1.5em;
-    padding: 1em;
-    color: #69FDF5;
-}
-
-header span {
-    font-size: 0.8em;
     color: white;
-}
-nav ul{
-    list-style-type: none;
-    justify-content: space-around;
-    display: flex;
+    margin: 0;
+    font-size: 1.5rem;
+    font-weight: 400;
 }
 
-nav ul li a {
-    font-size: 1.2em;
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 1rem 0 0 0;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap; /* Permite que los enlaces se ajusten en pantallas pequeñas */
+    gap: 1.5rem;
+}
+
+nav a {
     color: white;
     text-decoration: none;
-}
-nav ul li a:hover {
-    color: #47A3A0;
-    transition: all 0.2s ease-in-out;
+    font-weight: 600;
 }
 
-.grid-container {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-}
-
-.card{
-    background-color: #FFFFFF;
-    /* padding: 20px; */
-    margin: 10px;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-}
-
-.card-main{
-    grid-column: 1 / 3;
-    /* padding: 20px; */
-}
-
-.main-country-grid{
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 20px;
-}
-.card-about-me {
-    display: flex;
-}
-
-.card-about-me p {
-    font-size: 1.2em;
-    /* flex: 1; */
-    margin-right: 50px;
-}
-.card h2{
-    text-align: center;
-    font-size: 1.6em;
-    padding: 0.5em;
-    color: white;
-    background: #47A3A0;
-     border-radius: 8px 8px 0 0;
-}
-.card-main h4 {
-    grid-column: 1/3;
-    /* background: #000; */
-    font-size: 1.4em;
-    margin-top: 10px;
-    text-align: center;
-    margin-bottom: 10px;
+nav a:hover, nav a:focus {
     text-decoration: underline;
 }
 
-.main-country-grid .flag-p {
-    font-size: 0.8em;
-    font-style: italic;
+/* --- Diseño Mobile-First (por defecto) --- */
+main {
+    padding: 1rem;
 }
 
-.container{
-    padding : 20px;
+.card {
+    background-color: var(--card-background);
+    border-radius: 10px;
+    box-shadow: var(--card-shadow);
+    padding: 1.5rem;
+    margin-bottom: 1rem;
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out; /* Animación suave */
 }
 
-.container-country {
+.card:hover {
+    transform: translateY(-5px); /* Eleva la tarjeta al pasar el cursor */
+    box-shadow: 0 4px 12px rgba(0,0,0,0.12); /* Sombra más pronunciada */
+}
+
+.card h2 {
+    margin-top: 0;
+    border-bottom: 2px solid var(--secondary-color);
+    padding-bottom: 0.5rem;
+}
+
+.card-about-me p {
+    line-height: 1.6; /* Mejora la legibilidad del párrafo */
+}
+
+.card-about-me img {
+    max-width: 150px;
+    height: auto;
+    float: right;
+    margin-left: 1rem;
+    margin-bottom: 0.5rem;
+    border-radius: 8px;
+}
+
+.main-country-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
-}
-.container-country h4{
-    grid-column: 1/3;
+    grid-template-columns: auto 1fr;
+    gap: 1rem;
+    align-items: center;
+    margin-top: 2rem;
 }
 
-.container-country img{
-    max-width: 200px;
-}
-.container-country .main-country-grid{
-    grid-column: 1/3;
-    display: flex;
-    justify-content: center;
-}
-.card-resources .container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 90%;
+.flag-p {
+    text-align: center;
+    font-style: italic;
+    font-size: 0.9rem;
+    margin: 0.5rem 0 0 0;
 }
 
 .resources-list {
-    line-height: 1.6;
-    list-style-type: circle;
-    padding: 0;
+    list-style: '✅ ';
+    padding-left: 1.5rem;
+}
+
+.resources-list li {
+    margin-bottom: 0.5rem;
+}
+
+.resources-list a {
+    color: var(--primary-color);
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.resources-list a:hover {
+    text-decoration: underline;
 }
 
 footer {
-    background-color: #202A34;
-    color: white;
-    text-align: center;
-    padding: 1em;
-    height: 100px;
+    margin-top: 1rem;
 }
+
+/* --- Diseño para Escritorio (Tablet y más grandes) --- */
+@media (min-width: 768px) {
+    .grid-container {
+        display: grid;
+        grid-template-columns: 2fr 1fr; /* Dos columnas: la principal más ancha */
+        gap: 1rem;
+        max-width: 1200px;
+        margin: 1rem auto; /* Centra el contenido */
+        padding: 0 1rem;
+    }
+
+    .card {
+        margin-bottom: 0; /* El 'gap' del grid se encarga del espaciado */
+    }
+
+    .card-about-me {
+        display: flex;
+        align-items: flex-start;
+        gap: 1.5rem;
+    }
+
+    .card-about-me img {
+        order: 2; /* Mueve la imagen a la derecha */
+        float: none; /* Anula el float de la vista móvil */
+        margin: 0;
+        max-width: 200px;
+    }
+}}

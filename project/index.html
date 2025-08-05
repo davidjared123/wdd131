@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Guardería Rayitos de Sol: cuidado y educación para niños de 1 a 3 años.">
+  <title>Rayitos de Sol - Inicio</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header>
+    <nav>
+      <a class="logo" href="index.html">
+        <img src="img/rayitos.png" alt="Rayitos de Sol" loading="lazy">
+        <!-- <strong>Rayitos de Sol</strong> -->
+      </a>
+      <button class="menu-toggle" aria-label="Abrir menú" aria-expanded="false">&#9776;</button>
+      <ul>
+        <li><a href="#contacto">Contacto</a></li>
+      </ul>
+    </nav>
+  </header>
+  <main>
+    <section class="hero">
+      <picture>
+        <source srcset="img/rayitos-desktop.png" media="(min-width: 700px)">
+        <img src="img/rayitos-mobile.png" alt="Guardería Rayitos de Sol" class="hero-img" loading="lazy">
+      </picture>
+      <div class="hero-content">
+        <h1>Nurturing Young<br>Minds</h1>
+        <p>En Rayitos de Sol, brindamos un ambiente seguro y estimulante para niños de 1 a 3 años, fomentando su desarrollo y crecimiento.</p>
+        <a href="#contacto" class="cta">Agenda una visita</a>
+      </div>
+    </section>
+    <section class="section">
+      <h2>Nuestra Metodología</h2>
+      <p>Creemos en el aprendizaje a través del juego, promoviendo la exploración, creatividad e interacción social. Nuestro currículo está diseñado para el desarrollo integral de los pequeños.</p>
+      <div class="metodologias-grid">
+        <!-- Contenido interactivo sobre nuestras metodologías metodologias.js -->
+      </div>
+    </section>
+    <section class="section">
+      <h2>Conoce al equipo</h2>
+      <div class="team-card">
+        <img src="img/pilar.png" alt="Pilar Lopez - Lead Teacher" loading="lazy">
+        <div class="team-info">
+          <h3>Pilar Lopez</h3>
+          <p>Hola, soy Pilar 👩‍🏫
+            Tengo más de 10 años acompañando con amor y compromiso a niños y niñas en sus primeros años de aprendizaje. Me apasiona la educación preescolar porque creo profundamente que la infancia es la base de todo.
+            Mi enfoque es crear un espacio seguro, divertido y lleno de estímulos donde cada niño pueda descubrir el mundo a su ritmo, rodeado de cariño, juegos y experiencias que dejen huellas positivas. 
+            ¡Me encanta verlos crecer felices y seguros de sí mismos! 💛✨</p>
+          <a class="learn-btn" href="#modalDocente">Saber más</a>
+        </div>
+      </div>
+    </section>
+    <!-- Sección de contacto al final -->
+    <section class="section contact-section" id="contacto">
+      <h2>¿Tienes preguntas? ¡Escríbenos!</h2>
+      <!-- <p>¿Tienes preguntas? ¡Escríbenos!</p> -->
+      <form id="formContacto" autocomplete="on">
+        <label for="nombre">Nombre</label>
+        <input type="text" id="nombre" name="nombre" placeholder="Ingresa tu nombre" required>
+        <label for="mensaje">Mensaje</label>
+        <textarea id="mensaje" name="mensaje" placeholder="Escribe tu mensaje" required></textarea>
+        <button type="submit" class="submit-btn">Enviar</button>
+      </form>
+      <div id="mensajeExito" class="hidden"></div>
+      <div class="whatsapp-row" style="margin-top:1.5rem;">
+        <i class="wa-number">Este formulario enviará un mensaje a WhatsApp</i>
+      </div>
+    </section>
+    <section id="mapa" class="map-section">
+      <div class="map-responsive">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3918.617282019994!2d-74.8011236858906!3d10.993399258789073!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8ef42d1e7e2c7e2d%3A0x7e2b7e2b7e2b7e2b!2sBarranquilla%2C%20Atl%C3%A1ntico%2C%20Colombia!5e0!3m2!1ses!2sco!4v1689199999999!5m2!1ses!2sco" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
+    </section>
+  </main>
+  <!-- Modal CSS-only: solo uno, fuera de <main> y <section> -->
+  <div id="modalDocente" class="modal-window" role="dialog" aria-modal="true" aria-labelledby="modalDocenteTitle">
+    <div>
+      <a href="#" title="Cerrar" class="modal-close">Cerrar</a>
+      <div class="modal-header">
+        <img src="img/pilar.png" alt="Pilar Lopez - Docente" class="modal-docente-img">
+        <div>
+          <h3 id="modalDocenteTitle">Rayitos de Sol – ¡Inscripciones abiertas!</h3>
+          <p class="modal-sub">Para niños y niñas de <b>1 a 3 años</b></p>
+        </div>
+      </div>
+      <div class="modal-body">
+        <div class="modal-prices">
+          <div><span class="modal-label">Inscripción:</span> <span class="price">$40</span></div>
+          <div><span class="modal-label">Mensualidad medio turno:</span> <span class="price">$70</span> <span class="modal-horario">(8:00 a.m. - 12:00 m.)</span></div>
+          <div><span class="modal-label">Mensualidad turno completo:</span> <span class="price">$120</span> <span class="modal-horario">(8:00 a.m. - 4:00 p.m.)</span></div>
+        </div>
+        <div class="modal-programa">
+          <h4>¿Por qué elegir Rayitos de Sol?</h4>
+          <ul>
+            <li>Programa integral para el desarrollo físico, cognitivo y emocional.</li>
+            <li>Actividades de estimulación temprana, juegos didácticos, arte y música.</li>
+            <li>Ambiente seguro, divertido y lleno de cariño.</li>
+            <li>Grupos pequeños y atención personalizada.</li>
+          </ul>
+        </div>
+        <div class="modal-docente-desc">
+          <h4>Conoce a la docente</h4>
+          <p><b>Pilar Lopez</b> es Licenciada en Educación Preescolar, con más de 10 años de experiencia acompañando a los más pequeños en sus primeros años. Ha liderado proyectos educativos innovadores y se especializa en crear ambientes de aprendizaje afectivos y seguros. <br> <span style="color:#43c97f;">¡Su pasión es ver a cada niño crecer feliz y seguro!</span></p>
+        </div>
+        <div class="modal-contacto">
+          <p style="margin-top:1.2rem;">¿Tienes dudas? <a href="#contacto" class="modal-link">Contáctanos aquí</a> o <a href="https://wa.me/584245189761" target="_blank" class="modal-link">escríbenos por WhatsApp</a>.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <footer>
+  <!-- Modal interactivo mejorado: fuera de las secciones para overlay global -->
+
+    <div class="social">
+      <a href="https://instagram.com/rayitosdesol" target="_blank" aria-label="Instagram"><svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.5" y2="6.5"/></svg></a>
+      <a href="https://wa.me/584245189761" target="_blank" rel="noopener" aria-label="WhatsApp">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="#25D366" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="12" cy="12" r="12" fill="#25D366"/>
+          <path d="M17.472 14.382c-.297-.149-1.758-.867-2.031-.967-.273-.099-.471-.148-.669.15-.198.297-.767.967-.94 1.164-.173.198-.347.223-.644.075-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.372-.025-.521-.075-.149-.669-1.611-.916-2.206-.242-.579-.487-.5-.669-.51-.173-.008-.372-.01-.571-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.099 3.205 5.077 4.369.71.306 1.263.489 1.695.625.712.227 1.36.195 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.288.173-1.413-.074-.124-.272-.198-.57-.347z" fill="#fff"/>
+        </svg>
+      </a>
+    </div>
+    <p>&copy;<span id="currentYear"></span> Rayitos de Sol | <a href="references.html">Referencias</a></p>
+  </footer>
+  <script src="js/main.js"></script>
+  <script src="js/contact.js"></script>
+  <script src="js/metodologias.js"></script>
+</body>
+</html>
